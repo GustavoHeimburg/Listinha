@@ -3,239 +3,254 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Lista Fofa de Compras 💖</title>
+  <title>Lista Fofa</title>
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      user-select: none; /* Impede seleção de texto */
+    }
+
     body {
       background-color: #ffe6f0;
       font-family: 'Comic Sans MS', cursive, sans-serif;
-      color: #ff4da6;
-      margin: 0;
+      color: #ff3399;
       padding: 20px;
     }
 
     h1 {
       text-align: center;
+      margin-bottom: 20px;
+      font-size: 36px;
       color: #ff3399;
+      text-shadow: 1px 1px 2px #ffcce6;
     }
 
-    .container {
-      max-width: 600px;
+    .category {
       background-color: #fff0f5;
-      border-radius: 15px;
+      border: 2px dashed #ff99cc;
+      border-radius: 20px;
       padding: 20px;
-      margin: 0 auto;
-      box-shadow: 0 0 10px #ffb3d9;
+      margin-bottom: 20px;
+      box-shadow: 2px 2px 8px #ffb3d9;
     }
 
-    h2 {
-      border-bottom: 2px solid #ff99cc;
-      padding-bottom: 5px;
+    .category h2 {
+      margin-bottom: 10px;
+      color: #ff66a3;
     }
 
     ul {
       list-style: none;
-      padding-left: 0;
     }
 
     li {
-      margin-bottom: 10px;
+      margin: 8px 0;
+      background-color: #ffe6f0;
+      padding: 8px 12px;
+      border-radius: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #ffb3d9;
+      transition: 0.3s;
     }
 
-    input[type="checkbox"] {
-      margin-right: 10px;
-    }
-
-    .add-item {
-      margin-top: 10px;
-    }
-
-    input[type="text"] {
-      padding: 5px;
-      border: 2px solid #ff99cc;
-      border-radius: 8px;
+    li.checked {
+      text-decoration: line-through;
+      opacity: 0.5;
     }
 
     button {
-      background-color: #ff66b2;
-      color: white;
+      background-color: #ff99cc;
       border: none;
+      border-radius: 10px;
       padding: 5px 10px;
-      border-radius: 8px;
+      color: white;
       cursor: pointer;
+      margin-left: 5px;
       transition: background-color 0.3s;
     }
 
     button:hover {
-      background-color: #ff3385;
+      background-color: #ff66a3;
     }
 
-    .category {
-      margin-bottom: 30px;
+    .add-area {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
     }
+
+    input {
+      border: 1px solid #ffb3d9;
+      border-radius: 10px;
+      padding: 5px 10px;
+      width: 70%;
+    }
+
   </style>
 </head>
 <body>
 
-<h1>🌸 Lista Fofa de Compras 🌸</h1>
+<h1>💖 Lista Fofa de Itens 💖</h1>
 
-<div class="container">
-
-  <!-- Template para categorias -->
-  <div class="category">
-    <h2>🥗 Alimentação Boa (Saudável)</h2>
-    <ul id="list-alimentacao">
-      <li><input type="checkbox">Frutas variadas</li>
-      <li><input type="checkbox">Legumes</li>
-      <li><input type="checkbox">Verduras e folhas</li>
-      <li><input type="checkbox">Alho e cebola</li>
-      <li><input type="checkbox">Tomate</li>
-      <li><input type="checkbox">Limão</li>
-      <li><input type="checkbox">Ovos</li>
-      <li><input type="checkbox">Frango</li>
-      <li><input type="checkbox">Peixe</li>
-      <li><input type="checkbox">Carne vermelha magra</li>
-      <li><input type="checkbox">Queijo branco</li>
-      <li><input type="checkbox">Iogurte natural</li>
-      <li><input type="checkbox">Leite</li>
-      <li><input type="checkbox">Arroz integral</li>
-      <li><input type="checkbox">Feijão</li>
-      <li><input type="checkbox">Lentilha</li>
-      <li><input type="checkbox">Aveia</li>
-      <li><input type="checkbox">Grão-de-bico</li>
-      <li><input type="checkbox">Farinha de trigo</li>
-      <li><input type="checkbox">Macarrão integral</li>
-      <li><input type="checkbox">Pão integral</li>
-      <li><input type="checkbox">Azeite de oliva</li>
-      <li><input type="checkbox">Sal e temperos naturais</li>
-      <li><input type="checkbox">Açúcar mascavo ou mel</li>
-      <li><input type="checkbox">Café ou chá</li>
-      <li><input type="checkbox">Água (filtro ou galão)</li>
-    </ul>
-    <div class="add-item">
-      <input type="text" id="input-alimentacao" placeholder="Adicionar item...">
-      <button onclick="addItem('alimentacao')">Adicionar</button>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>🧼 Produtos de Limpeza</h2>
-    <ul id="list-limpeza">
-      <li><input type="checkbox">Detergente</li>
-      <li><input type="checkbox">Esponja</li>
-      <li><input type="checkbox">Sabão em barra</li>
-      <li><input type="checkbox">Água sanitária</li>
-      <li><input type="checkbox">Desinfetante</li>
-      <li><input type="checkbox">Multiuso</li>
-      <li><input type="checkbox">Sabão em pó ou líquido</li>
-      <li><input type="checkbox">Amaciante</li>
-      <li><input type="checkbox">Vassoura</li>
-      <li><input type="checkbox">Rodo</li>
-      <li><input type="checkbox">Pá de lixo</li>
-      <li><input type="checkbox">Balde</li>
-      <li><input type="checkbox">Pano de chão</li>
-      <li><input type="checkbox">Pano de limpeza</li>
-      <li><input type="checkbox">Sacos de lixo</li>
-      <li><input type="checkbox">Esponja de aço</li>
-      <li><input type="checkbox">Luvas de limpeza</li>
-    </ul>
-    <div class="add-item">
-      <input type="text" id="input-limpeza" placeholder="Adicionar item...">
-      <button onclick="addItem('limpeza')">Adicionar</button>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>🧴 Higiene Pessoal</h2>
-    <ul id="list-higiene">
-      <li><input type="checkbox">Sabonete</li>
-      <li><input type="checkbox">Shampoo</li>
-      <li><input type="checkbox">Condicionador</li>
-      <li><input type="checkbox">Creme dental</li>
-      <li><input type="checkbox">Escova de dente</li>
-      <li><input type="checkbox">Fio dental</li>
-      <li><input type="checkbox">Desodorante</li>
-      <li><input type="checkbox">Papel higiênico</li>
-      <li><input type="checkbox">Cotonetes</li>
-      <li><input type="checkbox">Absorventes</li>
-      <li><input type="checkbox">Lâminas de barbear</li>
-      <li><input type="checkbox">Toalhas</li>
-      <li><input type="checkbox">Álcool em gel</li>
-      <li><input type="checkbox">Lenços umedecidos</li>
-    </ul>
-    <div class="add-item">
-      <input type="text" id="input-higiene" placeholder="Adicionar item...">
-      <button onclick="addItem('higiene')">Adicionar</button>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>🍽️ Utensílios de Cozinha</h2>
-    <ul id="list-cozinha">
-      <li><input type="checkbox">Pratos</li>
-      <li><input type="checkbox">Copos</li>
-      <li><input type="checkbox">Talheres</li>
-      <li><input type="checkbox">Panelas</li>
-      <li><input type="checkbox">Frigideira</li>
-      <li><input type="checkbox">Peneira</li>
-      <li><input type="checkbox">Tábua de corte</li>
-      <li><input type="checkbox">Espátula/colher de pau</li>
-      <li><input type="checkbox">Abridor de lata</li>
-      <li><input type="checkbox">Potes plásticos</li>
-      <li><input type="checkbox">Assadeira</li>
-      <li><input type="checkbox">Panela de pressão</li>
-      <li><input type="checkbox">Escorredor de macarrão</li>
-      <li><input type="checkbox">Escorredor de louça</li>
-      <li><input type="checkbox">Jarra de água</li>
-      <li><input type="checkbox">Pano de prato</li>
-      <li><input type="checkbox">Guardanapos de papel</li>
-      <li><input type="checkbox">Papel toalha</li>
-      <li><input type="checkbox">Papel alumínio</li>
-      <li><input type="checkbox">Filme plástico</li>
-    </ul>
-    <div class="add-item">
-      <input type="text" id="input-cozinha" placeholder="Adicionar item...">
-      <button onclick="addItem('cozinha')">Adicionar</button>
-    </div>
-  </div>
-
-  <div class="category">
-    <h2>✨ Outros Úteis</h2>
-    <ul id="list-outros">
-      <li><input type="checkbox">Isqueiro ou fósforo</li>
-      <li><input type="checkbox">Lâmpadas extras</li>
-      <li><input type="checkbox">Pilhas</li>
-      <li><input type="checkbox">Repelente/inseticida</li>
-      <li><input type="checkbox">Remédios básicos</li>
-      <li><input type="checkbox">Velas</li>
-      <li><input type="checkbox">Sacolas reutilizáveis</li>
-    </ul>
-    <div class="add-item">
-      <input type="text" id="input-outros" placeholder="Adicionar item...">
-      <button onclick="addItem('outros')">Adicionar</button>
-    </div>
-  </div>
-
-</div>
+<div id="listas"></div>
 
 <script>
-  function addItem(category) {
-    const input = document.getElementById('input-' + category);
-    const value = input.value.trim();
-    if (value === '') {
-      alert('Digite um item!');
-      return;
-    }
+  const dados = {
+    "Alimentação Boa (Saudável)": [
+      "Frutas variadas (banana, maçã, laranja, etc.)",
+      "Legumes (cenoura, abobrinha, batata, etc.)",
+      "Verduras e folhas (alface, couve, espinafre)",
+      "Alho e cebola",
+      "Tomate",
+      "Limão",
+      "Ovos",
+      "Frango",
+      "Peixe",
+      "Carne vermelha magra",
+      "Queijo branco",
+      "Iogurte natural",
+      "Leite",
+      "Arroz integral",
+      "Feijão (preto, carioca ou outro)",
+      "Lentilha",
+      "Aveia",
+      "Grão-de-bico",
+      "Farinha de trigo/integral",
+      "Macarrão (de preferência integral)",
+      "Pão integral",
+      "Azeite de oliva",
+      "Sal e temperos naturais (orégano, cúrcuma, pimenta, etc.)",
+      "Açúcar mascavo ou mel",
+      "Café ou chá",
+      "Água (caso não use filtro)"
+    ],
+    "Produtos de Limpeza": [
+      "Detergente",
+      "Esponja",
+      "Sabão em barra",
+      "Água sanitária",
+      "Desinfetante",
+      "Multiuso",
+      "Sabão em pó ou líquido",
+      "Amaciante",
+      "Vassoura",
+      "Rodo",
+      "Pá de lixo",
+      "Balde",
+      "Pano de chão",
+      "Pano de limpeza",
+      "Sacos de lixo (pequeno, médio, grande)",
+      "Esponja de aço",
+      "Luvas de limpeza"
+    ],
+    "Higiene Pessoal": [
+      "Sabonete",
+      "Shampoo",
+      "Condicionador",
+      "Creme dental",
+      "Escova de dente",
+      "Fio dental",
+      "Desodorante",
+      "Papel higiênico",
+      "Cotonetes",
+      "Absorventes (se necessário)",
+      "Lâminas de barbear",
+      "Toalhas (banho, rosto)",
+      "Álcool em gel ou líquido",
+      "Lenços umedecidos"
+    ],
+    "Utensílios Básicos de Cozinha": [
+      "Pratos",
+      "Copos",
+      "Talheres",
+      "Panelas",
+      "Frigideira",
+      "Peneira",
+      "Tábua de corte",
+      "Espátula/colher de pau",
+      "Abridor de lata",
+      "Potes plásticos com tampa",
+      "Assadeira",
+      "Panela de pressão",
+      "Escorredor de macarrão",
+      "Escorredor de louça",
+      "Jarra de água",
+      "Pano de prato",
+      "Guardanapos de papel",
+      "Papel toalha",
+      "Papel alumínio",
+      "Filme plástico"
+    ],
+    "Outros Úteis": [
+      "Isqueiro ou fósforo",
+      "Lâmpadas extras",
+      "Pilhas",
+      "Repelente/inseticida",
+      "Remédios básicos",
+      "Velas",
+      "Sacolas reutilizáveis ou ecobags"
+    ]
+  };
 
-    const ul = document.getElementById('list-' + category);
+  const listasDiv = document.getElementById('listas');
+
+  for (const categoria in dados) {
+    const div = document.createElement('div');
+    div.className = 'category';
+    div.innerHTML = `<h2>${categoria}</h2>`;
+    const ul = document.createElement('ul');
+
+    dados[categoria].forEach(item => {
+      const li = criarItem(item);
+      ul.appendChild(li);
+    });
+
+    const input = document.createElement('input');
+    input.placeholder = '➕ Adicionar item';
+
+    const btnAdd = document.createElement('button');
+    btnAdd.innerText = 'Adicionar';
+    btnAdd.onclick = () => {
+      if (input.value.trim() !== '') {
+        const novoItem = criarItem(input.value);
+        ul.appendChild(novoItem);
+        input.value = '';
+      }
+    };
+
+    const addArea = document.createElement('div');
+    addArea.className = 'add-area';
+    addArea.appendChild(input);
+    addArea.appendChild(btnAdd);
+
+    div.appendChild(ul);
+    div.appendChild(addArea);
+    listasDiv.appendChild(div);
+  }
+
+  function criarItem(texto) {
     const li = document.createElement('li');
-    const checkbox = document.createElement('input');
-    checkbox.type = 'checkbox';
+    li.innerHTML = `<span>${texto}</span>`;
 
-    li.appendChild(checkbox);
-    li.appendChild(document.createTextNode(value));
-    ul.appendChild(li);
+    li.onclick = (e) => {
+      if (e.target.tagName !== 'BUTTON') {
+        li.classList.toggle('checked');
+      }
+    };
 
-    input.value = '';
+    const btnExcluir = document.createElement('button');
+    btnExcluir.innerText = '❌';
+    btnExcluir.onclick = () => {
+      li.remove();
+    };
+
+    li.appendChild(btnExcluir);
+
+    return li;
   }
 </script>
 
